@@ -88,13 +88,13 @@ class CPPLoggerManager : public LoggerManager
     void InitRootLogger()
     {
         std::call_once(loggerFlag, [this]() {
-            rootLogger = spdlog::get("root");
-            if (!rootLogger)
-            {
+            // rootLogger = spdlog::get("root");
+            // if (!rootLogger)
+            // {
                 rootLogger = spdlog::stdout_color_mt("root");
                 rootLogger->set_level(spdlog::level::info);
                 rootLogger->flush_on(spdlog::level::debug);
-            }
+            // }
             set_default_logger(rootLogger);
             rootLogger->info("Logger initialized.");
         });
