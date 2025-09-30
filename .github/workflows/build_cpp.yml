@@ -53,6 +53,7 @@ jobs:
         run: |
           g++ --version
           which g++
+          file /c/mingw64/bin/g++
           false
 
       - name: Configure
