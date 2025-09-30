@@ -48,13 +48,19 @@ jobs:
       - name: Install CMake
         uses: lukka/get-cmake@latest
 
+      - name: Install GCC 12 (Windows only)
+        if: env.COMPILER == 'gnu' && env.OPERATING_SYSTEM == 'windows'
+        uses: egor-tensin/setup-gcc@v1
+        with:
+          version: 12
+          platform: x64
+
       - name: Debug GCC Version
         if: env.COMPILER == 'gnu' && env.OPERATING_SYSTEM == 'windows'
         run: |
           g++ --version
           which g++
           file /c/mingw64/bin/g++
-          false
 
       - name: Configure
         shell: bash
