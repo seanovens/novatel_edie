@@ -48,6 +48,13 @@ jobs:
       - name: Install CMake
         uses: lukka/get-cmake@latest
 
+      - name: Debug GCC Version
+        if: env.COMPILER == 'gnu'
+        run: |
+          g++ --version
+          which g++
+          false
+
       - name: Configure
         shell: bash
         run: |
