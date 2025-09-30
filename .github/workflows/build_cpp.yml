@@ -49,7 +49,7 @@ jobs:
         uses: lukka/get-cmake@latest
 
       - name: Debug GCC Version
-        if: env.COMPILER == 'gnu'
+        if: env.COMPILER == 'gnu' && env.OPERATING_SYSTEM == 'windows'
         run: |
           g++ --version
           which g++
