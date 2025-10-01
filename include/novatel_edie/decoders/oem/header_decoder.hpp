@@ -47,6 +47,7 @@ class HeaderDecoder
     EnumDefinition::ConstPtr vMyPortAddressDefinitions{nullptr};
     EnumDefinition::ConstPtr vMyGpsTimeStatusDefinitions{nullptr};
     MessageDefinition stMyResponseDefinition;
+    mutable std::unordered_map<uint16_t, uint64_t> mapMyMessageIdCounts{};
 
     // Decode novatel headers
     template <const char pcDelimiter[], ASCII_HEADER eField>
