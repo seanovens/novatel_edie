@@ -425,8 +425,7 @@ STATUS HeaderDecoder::Decode(const unsigned char* pucLogBuf_, IntermediateHeader
     stMetaData_.messageName =
         pclMyMsgDb->MsgIdToMsgName(CreateMsgId(stInterHeader_.usMessageId, 0, static_cast<uint32_t>(MESSAGE_FORMAT::ABBREV), 0U));
 
-    if (stInterHeader_.usMessageId > 0)
-        mapMyMessageIdCounts[stInterHeader_.usMessageId]++;
+    if (stInterHeader_.usMessageId > 0) { mapMyMessageIdCounts[stInterHeader_.usMessageId]++; }
 
     return STATUS::SUCCESS;
 }
