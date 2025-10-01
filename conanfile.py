@@ -47,12 +47,9 @@ class NovatelEdieConan(ConanFile):
         cmake_layout(self)
 
     def requirements(self):
-        self.requires("simdjson/3.10.1", transitive_headers=True, transitive_libs=True, force=True)
-        self.requires("nlohmann_json/[>=3.11 <3.12]", transitive_headers=True)
-        self.requires("spdlog/[>=1.13 <2]", transitive_headers=True, transitive_libs=True, force=True)
-        self.requires("gegles-spdlog_setup/[>=1.1 <2]", transitive_headers=True)
-        # fmt/11.1.1 is currently not compatible with spdlog https://github.com/gabime/spdlog/issues/3302
-        # self.requires("fmt/11.1.3", force=True)
+        self.requires("nlohmann_json/[^3.11]", transitive_headers=True)
+        self.requires("spdlog/[^1.10]", transitive_headers=True, transitive_libs=True)
+        self.requires("gegles-spdlog_setup/[^1.1]", transitive_headers=True)
 
     def build_requirements(self):
         self.test_requires("gtest/[>=1.14 <1.15]")
